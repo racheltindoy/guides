@@ -147,3 +147,44 @@ ReactDOM.render(
 use ```<React.Fragment>``` instead of ```<div>```
 style: font-style should be fontStyle
 className instead of class
+
+
+## Conditional Rendering
+
+> index.js
+
+```
+ReactDOM.render(
+ <>
+ <App authorized={true}/>
+ </>,
+  document.getElementById('root')
+);
+```
+
+> App.js
+
+```
+function SecretComponent() {
+  return(
+    <h2>Authorized users only.</h2>
+  );
+}
+
+
+function RegularComponent() {
+  return(
+    <h2>Everyone can see this.</h2>
+  );
+}
+
+
+function App(props) {
+  if(props.authorized) {
+    return <SecretComponent />;
+  } else {
+    return <RegularComponent />;
+  }
+  
+}
+```
