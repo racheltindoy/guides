@@ -188,3 +188,62 @@ function App(props) {
   
 }
 ```
+
+### Shortcut
+
+function App(props) {
+  return (
+    <>
+    {props.authorized ? <SecretComponent /> : <RegularComponent />}
+    </>
+  );
+  
+}
+
+
+## Destructuring arrays and objects
+
+```
+function App({authorized}) {
+  return (
+    <>
+    {authorized ? <SecretComponent /> : <RegularComponent />}
+    </>
+  );
+  
+}
+```
+
+
+```
+const [, , light] = [
+  "boots",
+  "tent", 
+  "headlamp"];
+console.log(light);
+```
+
+
+## Understanding the useState hook
+
+> index.js
+
+```
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [emotion, setEmotion] = useState("happy");
+  console.log(emotion);
+  return (
+    <>
+     <h1>Current emotion is {emotion}.</h1>
+     <button onClick={() => setEmotion("frustrated")}>Frustrated</button>
+     <button onClick={() => setEmotion("enthusiastic")}>Enthusiastic</button>
+    </>
+  );
+  
+}
+
+export default App;
+```
